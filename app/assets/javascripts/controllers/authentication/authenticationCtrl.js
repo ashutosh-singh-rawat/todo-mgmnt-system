@@ -5,14 +5,14 @@ app.controller('AuthenticationCtrl', [
   function($scope, $state, Auth){
     $scope.login = function() {
       Auth.login($scope.user).then(function(){
-        $state.go('home');
+        $state.go('dashboard');
       });
     };
 
     $scope.register = function() {
       Auth.register($scope.user).then(function(){
-        $state.go('home');
+        $state.go('dashboard');
       });
-    };
+    };   
   }
 ]);

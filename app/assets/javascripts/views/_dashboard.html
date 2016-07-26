@@ -1,0 +1,102 @@
+<div class="page-header">
+  <h1>Dashboard</h1>
+</div>
+
+<div ng-if="user.role === 'manager'">
+  <div>
+    <a ui-sref="#">Create Project</a>
+    <a ui-sref="#">Create Todo</a>
+    <a ui-sref="#">Assign Todo</a>
+    <a ui-sref="#">Add develper to project</a>
+  </div>
+
+
+  <div>
+    <h3>Develpers and Todos</h3>
+    <table>
+      <tr>
+        <th>Status</th>
+        <th>Developer</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <th>Done</th>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>In Progress</th>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>New</th>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    
+  </div>
+  <div>
+    <h3>Projects and Todos</h3>
+    <table>
+      <tr>
+        <th>Status</th>
+        <th>Prject1</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <th>Done</th>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>In Progress</th>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>New</th>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    
+  </div>
+
+  <div>
+    <h3>Graph</h3>
+  </div>
+  
+</div>
+<div ng-if="user.role === 'developer'">
+  <div>
+    <h3>Todos</h3>
+    <table class="table-bordered" style="width: 100%">
+      <thead>
+        <th>SI</th>
+        <th>Todo</th>
+        <th>Status</th>
+        <th>Action</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><a ui-sref="#">Mark Pending</a> / <a ui-sref="#">Mark Done</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

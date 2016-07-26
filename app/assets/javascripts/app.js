@@ -9,6 +9,11 @@ app.config([
       url: '/home',
       templateUrl: 'views/_home.html',
       controller: 'MainCtrl',
+    })
+    .state('dashboard', {
+      url: '/dashboard',
+      templateUrl: 'views/_dashboard.html',
+      controller: 'DashboardCtrl',
       // resolve: {
       //   postPromise: ['posts', function(posts){
       //     return posts.getAll();
@@ -21,7 +26,7 @@ app.config([
       controller: 'AuthenticationCtrl',
       onEnter: ['$state', 'Auth', function($state, Auth) {
         Auth.currentUser().then(function (){
-          $state.go('home');
+          $state.go('dashboard');
         })
       }]
     })
@@ -31,7 +36,7 @@ app.config([
       controller: 'AuthenticationCtrl',
       onEnter: ['$state', 'Auth', function($state, Auth) {
         Auth.currentUser().then(function (){
-          $state.go('home');
+          $state.go('dashboard');
         })
       }]
     });

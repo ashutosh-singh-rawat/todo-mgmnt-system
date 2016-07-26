@@ -1,7 +1,8 @@
 app.controller('NavCtrl', [
   '$scope',
   'Auth',
-  function($scope, Auth){
+  '$state',
+  function($scope, Auth, $state){
     $scope.signedIn = Auth.isAuthenticated;
     $scope.logout = Auth.logout;
     Auth.currentUser().then(function (user){
@@ -15,6 +16,7 @@ app.controller('NavCtrl', [
     });
     $scope.$on('devise:logout', function (e, user){
       $scope.user = {};
+      $state.go("home");
     });
   }
 ]);
