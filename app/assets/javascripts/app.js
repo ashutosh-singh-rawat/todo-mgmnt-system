@@ -1,4 +1,4 @@
-var app = angular.module('todoMgmnt', ['ui.router', 'templates', 'Devise']);
+var app = angular.module('todoMgmnt', ['ui.router', 'templates', 'Devise', 'toastr']);
 app.config([
   '$stateProvider',
   '$urlRouterProvider',

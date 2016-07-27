@@ -4,15 +4,16 @@
 
 <div ng-if="user.role === 'manager'">
   <div>
-    <a ui-sref="#">Create Project</a>
-    <a ui-sref="#">Create Todo</a>
-    <a ui-sref="#">Assign Todo</a>
-    <a ui-sref="#">Add develper to project</a>
+    <a ui-sref="#" class="btn btn-success">Create Project</a>
+    <a ui-sref="#" class="btn btn-success">Create Todo</a>
+    <a ui-sref="#" class="btn btn-success">Assign Todo</a>
+    <a ui-sref="#" class="btn btn-success">Add develper to project</a>
   </div>
 
 
   <div>
     <h3>Develpers and Todos</h3>
+      {{developer_todos}}
     <table>
       <tr>
         <th>Status</th>
@@ -40,10 +41,11 @@
         <td></td>
       </tr>
     </table>
-    
+
   </div>
   <div>
     <h3>Projects and Todos</h3>
+      {{project_todos}}
     <table>
       <tr>
         <th>Status</th>
@@ -71,13 +73,13 @@
         <td></td>
       </tr>
     </table>
-    
+
   </div>
 
   <div>
     <h3>Graph</h3>
   </div>
-  
+
 </div>
 <div ng-if="user.role === 'developer'">
   <div>

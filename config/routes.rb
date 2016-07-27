@@ -5,16 +5,20 @@ Rails.application.routes.draw do
 
 
   root to: 'application#angular'
-  
-  # resources :posts, only: [:create, :index, :show] do
-  #   resources :comments, only: [:show, :create] do
-  #     member do
-  #       put '/upvote' => 'comments#upvote'
-  #     end
-  #   end
 
-  #   member do
-  #     put '/upvote' => 'posts#upvote'
-  #   end
-  # end
+  namespace :admin do
+  end
+  namespace :manager do
+    resources :projects, only: [] do
+      collection do
+        get :developer_todos
+        get :project_todos
+      end
+    end
+
+    resources :todos, only: [] do
+    end
+  end
+  namespace :developer do
+  end
 end
