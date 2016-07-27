@@ -29,3 +29,4 @@ dp1 = DeveloperProject.create(project_id: p1.id, user_id: developer.id)
 dp2 = DeveloperProject.create(project_id: p1.id, user_id: developer1.id)
 dp3 = DeveloperProject.create(project_id: p1.id, user_id: developer2.id)
 
+todo = Todo.create(name: "Todo1", user_id: developer.id , project_id: p1.id)

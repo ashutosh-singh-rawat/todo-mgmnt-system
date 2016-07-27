@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many    :teams
   has_many    :developer_projects
   has_many    :projects, through: :developer_projects
+  has_many    :todos
 
 
   VALID_ROLES.each do |role|
