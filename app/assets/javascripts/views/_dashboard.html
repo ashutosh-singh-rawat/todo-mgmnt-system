@@ -72,6 +72,11 @@
 
   <div>
     <h3>Graph</h3>
+    <div ng-repeat="project in projects_todos" class="col-md-6" style="border:3px;">      
+      <div ng-controller='ChartCtrl' ng-init="getProjectStatusPiechartData(project)" >
+        <div google-chart chart="myChartObject" style="height:600px; width:100%;"></div>
+      </div>
+    </div>
   </div>
 
 </div>
