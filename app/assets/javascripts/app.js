@@ -14,11 +14,6 @@ app.config([
       url: '/dashboard',
       templateUrl: 'views/_dashboard.html',
       controller: 'DashboardCtrl',
-      // resolve: {
-      //   postPromise: ['posts', function(posts){
-      //     return posts.getAll();
-      //   }]
-      // }
     })
     .state('login', {
       url: '/login',

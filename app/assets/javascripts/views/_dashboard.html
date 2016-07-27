@@ -13,64 +13,58 @@
 
   <div>
     <h3>Develpers and Todos</h3>
-      {{developer_todos}}
-    <table>
+    <!-- {{developers_todos}} -->
+    <table class="table-bordered" style="width:100%;">
       <tr>
         <th>Status</th>
-        <th>Developer</th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th ng-repeat="developer in developers_todos"> {{developer.email}}</th>
       </tr>
       <tr>
         <th>Done</th>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td ng-repeat="developer in developers_todos"> 
+          <span ng-repeat="todo in developer.todos | filter: {status: 'done'}">{{todo.name}}<br></span>
+        </td>
       </tr>
       <tr>
         <th>In Progress</th>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td ng-repeat="developer in developers_todos"> 
+          <span ng-repeat="todo in developer.todos | filter: {status: 'in_progress'}">{{todo.name}}<br></span>
+        </td>
       </tr>
       <tr>
         <th>New</th>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td ng-repeat="developer in developers_todos"> 
+          <span ng-repeat="todo in developer.todos | filter: {status: 'pending'}">{{todo.name}}<br></span>
+        </td>
       </tr>
     </table>
-
   </div>
+
   <div>
     <h3>Projects and Todos</h3>
-      {{project_todos}}
-    <table>
+    <!-- {{projects_todos}} -->
+    <table class="table-bordered" style="width:100%;">
       <tr>
         <th>Status</th>
-        <th>Prject1</th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th ng-repeat="project in projects_todos"> {{project.name}}</th>
       </tr>
       <tr>
         <th>Done</th>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td ng-repeat="project in projects_todos"> 
+          <span ng-repeat="todo in project.todos | filter: {status: 'done'}">{{todo.name}}<br></span>
+        </td>
       </tr>
       <tr>
         <th>In Progress</th>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td ng-repeat="project in projects_todos"> 
+          <span ng-repeat="todo in project.todos | filter: {status: 'in_progress'}">{{todo.name}}<br></span>
+        </td>
       </tr>
       <tr>
         <th>New</th>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td ng-repeat="project in projects_todos"> 
+          <span ng-repeat="todo in project.todos | filter: {status: 'pending'}">{{todo.name}}<br></span>
+        </td>
       </tr>
     </table>
 

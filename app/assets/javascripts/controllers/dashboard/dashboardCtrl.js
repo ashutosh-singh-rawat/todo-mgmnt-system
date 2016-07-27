@@ -20,8 +20,8 @@ app.controller('DashboardCtrl', [
     $scope.getDeveloperTodos = function(){
       User.getDeveloperTodos()
         .then(function(response) {
-          $scope.developer_todos = response.data.developer_todos;
-          console.log( $scope.developer_todos)
+          $scope.developers_todos = response.data.developers_todos;
+          console.log( $scope.developers_todos)
         })
         .catch(function(err) {
           Notifier.processAndNotifyError(err);
@@ -31,8 +31,8 @@ app.controller('DashboardCtrl', [
     $scope.getProjectsTodos = function(){
       User.getProjectsTodos()
         .then(function(response) {
-          $scope.project_todos = response.data.project_todos;
-          console.log( $scope.project_todos)
+          $scope.projects_todos = response.data.projects_todos;
+          console.log( $scope.projects_todos)
         })
         .catch(function(err) {
           Notifier.processAndNotifyError(err);
