@@ -17,7 +17,7 @@ app.controller('DashboardCtrl', [
 
 
     $scope.getDeveloperTodos = function(){
-      User.getDeveloperTodos()
+      User.getManagerDeveloperTodos()
         .then(function(response) {
           $scope.developers_todos = response.data.developers_todos;
         })
@@ -27,7 +27,7 @@ app.controller('DashboardCtrl', [
     };
 
     $scope.getProjectsTodos = function(){
-      User.getProjectsTodos()
+      User.getManagerProjectsTodos()
         .then(function(response) {
           $scope.projects_todos = response.data.projects_todos;
         })

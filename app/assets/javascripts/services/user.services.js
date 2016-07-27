@@ -2,13 +2,23 @@ app.factory('User', [
   '$http',
   function($http) {
     return {
-      getDeveloperTodos: function(){
-        // return $http.post('/api/projects.json/', data);
-        return $http.get('/manager/projects/developer_todos.json/');
+      getManagerDeveloperTodos: function(){
+        return $http.get('/manager/projects/developer_todos.json');
       },
-      getProjectsTodos: function(){
-        // return $http.post('/api/projects.json/', data);
-        return $http.get('/manager/projects/project_todos.json/');
+      getManagerProjectsTodos: function(){
+        return $http.get('/manager/projects/project_todos.json');
+      },
+      getManagerTeams: function(){
+        return $http.get('/manager/teams.json');
+      },
+      getManagerDevelopers: function(){
+        return $http.get('/manager/projects/developers.json');
+      },
+      getManagerProjects: function(){
+        return $http.get('/manager/projects.json');
+      },
+      getManagerNewTodos: function(){
+        return $http.get('/manager/projects/new_todos.json');
       }
     };
   }

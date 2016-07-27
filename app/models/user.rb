@@ -13,18 +13,17 @@ class User < ApplicationRecord
 
   belongs_to  :development_team, class_name: "Team", foreign_key: :team_id
   has_many    :teams
+  has_many    :todos
+  has_many    :developers, through: :teams
+  has_many    :managed_projects, through: :teams, source: :projects
   has_many    :developer_projects
   has_many    :projects, through: :developer_projects
-  has_many    :todos
 
 
   VALID_ROLES.each do |role|
     define_method "#{role}?" do
       self.role == role
     end
-  end
-
-  def manager_project
   end
 
   def developers_todos_report

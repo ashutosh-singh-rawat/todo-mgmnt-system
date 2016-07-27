@@ -4,10 +4,10 @@
 
 <div ng-if="user.role === 'manager'">
   <div>
-    <a ui-sref="#" class="btn btn-success">Create Project</a>
-    <a ui-sref="#" class="btn btn-success">Create Todo</a>
-    <a ui-sref="#" class="btn btn-success">Assign Todo</a>
-    <a ui-sref="#" class="btn btn-success">Add develper to project</a>
+    <a ui-sref="new-project" class="btn btn-success">Create Project</a>
+    <a ui-sref="new-todo" class="btn btn-success">Create Todo</a>
+    <a ui-sref="assign-todo" class="btn btn-success">Assign Todo</a>
+    <a ui-sref="assign-developer" class="btn btn-success">Add develper to project</a>
   </div>
 
 
@@ -72,7 +72,7 @@
 
   <div>
     <h3>Graph</h3>
-    <div ng-repeat="project in projects_todos" class="col-md-6" style="border:3px;">      
+    <div ng-repeat="project in projects_todos">      
       <div ng-controller='ChartCtrl' ng-init="getProjectStatusPiechartData(project)" >
         <div google-chart chart="myChartObject" style="height:600px; width:100%;"></div>
       </div>

@@ -9,15 +9,25 @@ Rails.application.routes.draw do
   namespace :admin do
   end
   namespace :manager do
-    resources :projects, only: [] do
+    resources :projects, only: [:index, :create] do
       collection do
         get :developer_todos
         get :project_todos
+        get :developers
+        get :new_todos
+      end
+      member do
+        post :assign_developer
+      end      
+    end
+
+    resources :todos, only: [:create] do
+      member do
+        post :assign_to_developer
       end
     end
 
-    resources :todos, only: [] do
-    end
+    resources :teams, only: [:index]
   end
   namespace :developer do
   end

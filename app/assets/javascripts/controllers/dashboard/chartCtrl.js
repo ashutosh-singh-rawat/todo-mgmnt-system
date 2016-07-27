@@ -8,8 +8,6 @@ app.controller('ChartCtrl', ['$scope',
         todo = dataset[i];
         counts[todo.status]++;
       }
-      console.log(counts);
-
       $scope.myChartObject.type = "PieChart";
       $scope.myChartObject.data = {
         "cols": [
