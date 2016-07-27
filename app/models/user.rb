@@ -10,6 +10,10 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validate  :valid_role
 
+  belongs_to :development_team, class_name: "Team"
+  has_many   :teams
+
+
   VALID_ROLES.each do |role|
     define_method "#{role}?" do
       self.role == role
