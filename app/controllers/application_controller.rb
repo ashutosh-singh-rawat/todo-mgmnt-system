@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
 
   protected
     def ensure_user_is_project_manager!
-      binding.pry
       render_error("Your don't have previlege to perform this action..") and return  unless current_user.manager?
     end
 
