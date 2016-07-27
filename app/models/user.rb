@@ -24,6 +24,37 @@ class User < ApplicationRecord
     end
   end
 
+  def manager_project
+  end
+
+  def developers_todos_report
+    # developers = teams.
+
+    # teams.joins(:developers).select("teams.id, users.email as username").size
+
+    # teams.joins("LEFT OUTER JOIN users ON users.team_id = teams.id" ).select("teams.id, users.email as username")
+    data = []
+    User.includes(:development_team).where("teams.id IN (?)", teams.ids).references(:teams).each{ |u|
+      h = {}
+      h[:email] = u.email
+      h[:todos] = u.todos
+      data << h
+    }
+
+    data
+
+  end
+  def projects_todos_report
+    data = []
+    Project.where(team_id: teams.ids).each{ |p|
+      h = {}
+      h[:name] = p.name
+      h[:todos] = p.todos
+      data << h
+    }
+    data
+  end
+
   private
     def valid_role
       errors.add(:role, "Invalid role") unless VALID_ROLES.include?(role)
