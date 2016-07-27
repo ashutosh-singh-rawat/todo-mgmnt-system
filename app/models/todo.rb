@@ -1,13 +1,14 @@
 class Todo < ApplicationRecord
-  belongs_to :developer, class_name: "User", foreign_key: :user_id
-  belongs_to :project
+  attribute :status, :string, default: "pending"
 
   STATUS = ["pending", "in_progress", "done"]
-  validate  :valid_status
 
-  # def initialize
-  #   status ||= "pending"
-  # end
+  belongs_to :developer, class_name: "User", foreign_key: :user_id, optional: true
+  belongs_to :project
+
+  validates  :name, presence: true
+  validates_uniqueness_of :name, scope: [:project_id]
+  validate  :valid_status
 
   private
     def valid_status
