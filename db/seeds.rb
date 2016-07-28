@@ -1,8 +1,8 @@
 superadmin = User.create!(email: "superadmin@gmail.com", password: "superadmin", role: "super_admin")
 
 manager = User.create!(email: "manager@gmail.com", password: "manager", role: "manager")
-# manager1 = User.create!(email: "manager1@gmail.com", password: "manager1", role: "manager")
-# manager2 = User.create!(email: "manager2@gmail.com", password: "manager2", role: "manager")
+manager1 = User.create!(email: "manager1@gmail.com", password: "manager1", role: "manager")
+manager2 = User.create!(email: "manager2@gmail.com", password: "manager2", role: "manager")
 
 
 t1 = Team.create!(name: 'ROR', user_id: manager.id)
