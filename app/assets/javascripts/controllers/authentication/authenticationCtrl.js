@@ -1,6 +1,12 @@
-app.controller('AuthenticationCtrl', function($scope, $state, Auth, Notifier){
+app.controller('AuthenticationCtrl', function($scope, $state, Auth, Notifier, User){
+  User.getAllTeams().then(function(response){
+    $scope.all_teams = response.data.teams;
+  }).catch(function(err) {
+    Notifier.processAndNotifyError(err);
+  });
+
   $scope.login = function() {
-    Auth.login($scope.user).then(function(){
+    Auth.login($scope.user).then(function(response){
       Notifier.notifyInfo("Logged In");
       $state.go('dashboard');
     })
@@ -10,7 +16,7 @@ app.controller('AuthenticationCtrl', function($scope, $state, Auth, Notifier){
   };
 
   $scope.register = function() {
-    Auth.register($scope.user).then(function(){
+    Auth.register($scope.user).then(function(response){
       $state.go('dashboard');
     }).catch(function(err) {
       Notifier.processAndNotifyError(err);

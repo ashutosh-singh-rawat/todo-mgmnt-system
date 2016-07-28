@@ -3,12 +3,15 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception, prepend: true
   before_action :configure_permitted_parameters, if: :devise_controller?
-  # before_action :authenticate_user!
-  after_filter :set_csrf_headers
+  after_action :set_csrf_headers
   respond_to :json
 
   def angular
     render 'layouts/application'
+  end
+
+  def all_teams
+    render json: {teams: Team.all}
   end
 
   protected
@@ -37,6 +40,6 @@ class ApplicationController < ActionController::Base
     # end
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :role])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :role, :team_id])
     end
 end

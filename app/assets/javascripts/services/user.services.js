@@ -22,6 +22,9 @@ app.factory('User', [
       },
       getDevelopersTodos: function(){
         return $http.get('/developer/todos.json');
+      },
+      getAllTeams: function(){
+        return $http.get('/all_teams.json');
       }
     };
   }

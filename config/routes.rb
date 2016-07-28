@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
   }
 
 
   root to: 'application#angular'
+
+  match :all_teams, to: 'application#all_teams', via: :get
 
   namespace :admin do
   end

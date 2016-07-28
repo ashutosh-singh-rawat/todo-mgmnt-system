@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validate  :valid_role
 
-  belongs_to  :development_team, class_name: "Team", foreign_key: :team_id
+  belongs_to  :development_team, class_name: "Team", foreign_key: :team_id, optional: true
   has_many    :teams
   has_many    :todos
   has_many    :developers, through: :teams
@@ -19,6 +19,7 @@ class User < ApplicationRecord
   has_many    :developer_projects
   has_many    :projects, through: :developer_projects
 
+  accepts_nested_attributes_for :teams
 
   VALID_ROLES.each do |role|
     define_method "#{role}?" do
@@ -27,11 +28,6 @@ class User < ApplicationRecord
   end
 
   def developers_todos_report
-    # developers = teams.
-
-    # teams.joins(:developers).select("teams.id, users.email as username").size
-
-    # teams.joins("LEFT OUTER JOIN users ON users.team_id = teams.id" ).select("teams.id, users.email as username")
     data = []
     User.includes(:development_team).where("teams.id IN (?)", teams.ids).references(:teams).each{ |u|
       h = {}
@@ -39,10 +35,9 @@ class User < ApplicationRecord
       h[:todos] = u.todos
       data << h
     }
-
     data
-
   end
+
   def projects_todos_report
     data = []
     Project.where(team_id: teams.ids).each{ |p|
