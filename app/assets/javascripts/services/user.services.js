@@ -1,6 +1,10 @@
 app.factory('User', [
   '$http',
-  function($http) {
+  'Notifier',
+  '$q',
+  'Auth',
+  '$state',
+  function($http, Notifier, $q, Auth, $state) {
     return {
       getManagerDeveloperTodos: function(){
         return $http.get('/manager/projects/developer_todos.json');
@@ -25,6 +29,20 @@ app.factory('User', [
       },
       getAllTeams: function(){
         return $http.get('/all_teams.json');
+      },
+      skipIfLoggedIn: function(){
+        if (Auth.isAuthenticated()) {
+          return $q.reject("skip_login");
+        } else {
+          return "ok";
+        }
+      },
+      loginRequired: function(){
+        if (Auth.isAuthenticated()) {
+          return "ok";
+        } else {
+          return $q.reject("login_required");
+        }
       }
     };
   }

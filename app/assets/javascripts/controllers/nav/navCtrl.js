@@ -20,9 +20,5 @@ app.controller('NavCtrl', [
       Notifier.notifyInfo("Logged Out");
       $state.go("home");
     });
-
-    $scope.$on('devise:unauthorized', function(event, xhr, deferred) {
-      Notifier.notifyError("Inavlid email/password combination");
-    });
   }
 ]);
