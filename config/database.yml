@@ -85,5 +85,5 @@ test:
 production:
   <<: *default
   database: todo_mgmnt_production
-  username: todo_mgmnt
-  password: <%= ENV['TODO_MGMNT_DATABASE_PASSWORD'] %>
+  username: postgres
+  password: postgres
