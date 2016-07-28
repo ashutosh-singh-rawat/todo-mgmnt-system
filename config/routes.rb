@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
   end
+
   namespace :manager do
     resources :projects, only: [:index, :create] do
       collection do
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
       end
       member do
         post :assign_developer
-      end      
+      end
     end
 
     resources :todos, only: [:create] do
@@ -29,6 +30,12 @@ Rails.application.routes.draw do
 
     resources :teams, only: [:index]
   end
+
   namespace :developer do
+    resources :todos, only: [:index] do
+      member do
+        patch :mark_todo
+      end
+    end
   end
 end

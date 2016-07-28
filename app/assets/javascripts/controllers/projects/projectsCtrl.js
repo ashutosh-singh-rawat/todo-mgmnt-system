@@ -1,6 +1,5 @@
 app.controller('ProjectsCtrl', function($scope, $state, Notifier, Project, Auth, User){
-  
-    
+
   Auth.currentUser().then(function (user){
     $scope.user = user;
     if($scope.user.role == "manager"){
@@ -31,7 +30,7 @@ app.controller('ProjectsCtrl', function($scope, $state, Notifier, Project, Auth,
       .catch(function(err) {
         Notifier.processAndNotifyError(err);
       });
-      
+
     }else if($scope.user.role == "developer"){
 
     }
@@ -71,7 +70,7 @@ app.controller('ProjectsCtrl', function($scope, $state, Notifier, Project, Auth,
       .catch(function(err) {
         Notifier.processAndNotifyError(err);
       });
-  }; 
+  };
 
   $scope.assignDeveloper = function(){
     Project.assignDeveloper($scope.project)
@@ -83,7 +82,7 @@ app.controller('ProjectsCtrl', function($scope, $state, Notifier, Project, Auth,
       .catch(function(err) {
         Notifier.processAndNotifyError(err);
       });
-  }; 
+  };
 
-   
+
 });

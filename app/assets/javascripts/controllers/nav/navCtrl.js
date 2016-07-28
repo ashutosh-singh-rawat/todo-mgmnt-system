@@ -9,7 +9,6 @@ app.controller('NavCtrl', function($scope, Auth, $state, Notifier){
   });
   $scope.$on('devise:login', function (e, user){
     $scope.user = user;
-    Notifier.notifyInfo("Logged In");
   });
   $scope.$on('devise:logout', function (e, user){
     $scope.user = {};

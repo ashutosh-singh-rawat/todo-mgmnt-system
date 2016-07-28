@@ -19,7 +19,7 @@ app.config([
     })
     .state('dashboard', {
       url: '/dashboard',
-      templateUrl: 'views/_dashboard.html',
+      templateUrl: 'views/dashboard/_dashboard.html',
       controller: 'DashboardCtrl',
     })
     .state('login', {

@@ -1,0 +1,25 @@
+<div>
+  <h3>Todos</h3>
+  <table class="table-bordered" style="width: 100%">
+    <thead>
+      <th>SI</th>
+      <th>Todo</th>
+      <th>Status</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="todo in todos">
+        <td>{{$index + 1}}</td>
+        <td>{{todo.name}}</td>
+        <td>{{todo.status}}</td>
+        <td ng-controller="TodosCtrl">
+          <div ng-if="todo.status === 'done'"> N/A</div>
+          <a href="javascript:;" ng-if="todo.status !== 'in_progress' && todo.status !== 'done'" ng-click="markInProgress(todo.id)">
+          Mark In Progress</a>
+          <span  ng-if="todo.status !== 'in_progress' && todo.status !== 'done'"> </span>
+          <a href="javascript:;" ng-if="todo.status !== 'done'" ng-click="markDone(todo.id)">Mark Done</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

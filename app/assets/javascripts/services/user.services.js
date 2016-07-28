@@ -19,6 +19,9 @@ app.factory('User', [
       },
       getManagerNewTodos: function(){
         return $http.get('/manager/projects/new_todos.json');
+      },
+      getDevelopersTodos: function(){
+        return $http.get('/developer/todos.json');
       }
     };
   }

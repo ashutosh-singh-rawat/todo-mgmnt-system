@@ -1,0 +1,9 @@
+<div class="page-header">
+  <h1>Dashboard</h1>
+</div>
+<div ng-if="user.role === 'manager'">
+  <ng-include src="'views/dashboard/_manager-dashboard.html'"></ng-include>
+</div>
+<div ng-if="user.role === 'developer'">
+  <ng-include src="'views/dashboard/_developer-dashboard.html'"></ng-include>
+</div>

@@ -1,0 +1,75 @@
+<div>
+  <a ui-sref="new-project" class="btn btn-success">Create Project</a>
+  <a ui-sref="new-todo" class="btn btn-success">Create Todo</a>
+  <a ui-sref="assign-todo" class="btn btn-success">Assign Todo</a>
+  <a ui-sref="assign-developer" class="btn btn-success">Add develper to project</a>
+</div>
+
+
+<div>
+  <h3>Develpers and Todos</h3>
+  <!-- {{developers_todos}} -->
+  <table class="table-bordered" style="width:100%;">
+    <tr>
+      <th>Status</th>
+      <th ng-repeat="developer in developers_todos"> {{developer.email}}</th>
+    </tr>
+    <tr>
+      <th>Done</th>
+      <td ng-repeat="developer in developers_todos">
+        <span ng-repeat="todo in developer.todos | filter: {status: 'done'}">{{todo.name}}<br></span>
+      </td>
+    </tr>
+    <tr>
+      <th>In Progress</th>
+      <td ng-repeat="developer in developers_todos">
+        <span ng-repeat="todo in developer.todos | filter: {status: 'in_progress'}">{{todo.name}}<br></span>
+      </td>
+    </tr>
+    <tr>
+      <th>New</th>
+      <td ng-repeat="developer in developers_todos">
+        <span ng-repeat="todo in developer.todos | filter: {status: 'pending'}">{{todo.name}}<br></span>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <h3>Projects and Todos</h3>
+  <!-- {{projects_todos}} -->
+  <table class="table-bordered" style="width:100%;">
+    <tr>
+      <th>Status</th>
+      <th ng-repeat="project in projects_todos"> {{project.name}}</th>
+    </tr>
+    <tr>
+      <th>Done</th>
+      <td ng-repeat="project in projects_todos">
+        <span ng-repeat="todo in project.todos | filter: {status: 'done'}">{{todo.name}}<br></span>
+      </td>
+    </tr>
+    <tr>
+      <th>In Progress</th>
+      <td ng-repeat="project in projects_todos">
+        <span ng-repeat="todo in project.todos | filter: {status: 'in_progress'}">{{todo.name}}<br></span>
+      </td>
+    </tr>
+    <tr>
+      <th>New</th>
+      <td ng-repeat="project in projects_todos">
+        <span ng-repeat="todo in project.todos | filter: {status: 'pending'}">{{todo.name}}<br></span>
+      </td>
+    </tr>
+  </table>
+
+</div>
+
+<div>
+  <h3>Graph</h3>
+  <div ng-repeat="project in projects_todos">
+    <div ng-controller='ChartCtrl' ng-init="getProjectStatusPiechartData(project)" >
+      <div google-chart chart="myChartObject" style="height:600px; width:100%;"></div>
+    </div>
+  </div>
+</div>

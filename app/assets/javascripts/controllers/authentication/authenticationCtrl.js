@@ -1,6 +1,7 @@
 app.controller('AuthenticationCtrl', function($scope, $state, Auth, Notifier){
   $scope.login = function() {
     Auth.login($scope.user).then(function(){
+      Notifier.notifyInfo("Logged In");
       $state.go('dashboard');
     })
     .catch(function(err) {
