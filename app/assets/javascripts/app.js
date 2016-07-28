@@ -20,11 +20,7 @@ app.config([
     .state('dashboard', {
       url: '/dashboard',
       templateUrl: 'views/dashboard/_dashboard.html',
-      controller: 'DashboardCtrl',
-      require_login: true,
-      resolve: {
-        access: loginRequired
-      }
+      controller: 'DashboardCtrl'
     })
     .state('login', {
       url: '/login',
@@ -94,19 +90,13 @@ app.run(['$rootScope',
   'Notifier',
   'Auth',
   function($rootScope, $state, Notifier, Auth){
-    $rootScope.$on("$stateChangeError", function (event, toState, toParams, fromState, fromParams, error) {
-      if (error == "login_required") {
+    $rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams, error){
+      if(error == "login_required"){
         // Notifier.notifyWarning("You need to be logged in order to view this page");
         $state.go("login");
-      } else if(error == "skip_login"){
+      }else if(error == "skip_login"){
         $state.go(fromState);
       }
     });
-    // $rootScope.$on('$routeChangeStart', function(event, next, current){
-    //   if(next.$$route.require_login == false && !Auth.isAuthenticated()) {
-    //     $location.path("/login");
-    //   }
-    // });
-
   }
 ]);
