@@ -1,16 +1,13 @@
 superadmin = User.create!(email: "superadmin@gmail.com", password: "superadmin", role: "super_admin")
 
 manager = User.create!(email: "manager@gmail.com", password: "manager", role: "manager")
-manager1 = User.create!(email: "manager1@gmail.com", password: "manager1", role: "manager")
-manager2 = User.create!(email: "manager2@gmail.com", password: "manager2", role: "manager")
+# manager1 = User.create!(email: "manager1@gmail.com", password: "manager1", role: "manager")
+# manager2 = User.create!(email: "manager2@gmail.com", password: "manager2", role: "manager")
 
 
 t1 = Team.create!(name: 'ROR', user_id: manager.id)
-t2 = Team.create!(name: 'Node.js')
-t3 = Team.create!(name: 'Angular')
-t4 = Team.create!(name: 'java')
-t5 = Team.create!(name: 'IOS')
-t6 = Team.create!(name: 'Android')
+t2 = Team.create!(name: 'Node.js', user_id: manager1.id)
+t3 = Team.create!(name: 'Angular', user_id: manager2.id)
 
 p1 = Project.create!(name: 'Project 1', team_id: t1.id)
 p2 = Project.create!(name: 'Project 2', team_id: t1.id)
