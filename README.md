@@ -3,8 +3,8 @@
 2 - cd todo-mgmnt-system
 
 3 - RUN
-    FOR DEVELOPMENT MODE 
     
+    FOR DEVELOPMENT MODE 
     ./development.sh
 
     FOR PRODUCTION MODE
