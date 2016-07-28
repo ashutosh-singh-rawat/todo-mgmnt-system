@@ -17,4 +17,5 @@
 .byebug_history
 vendor/assets/bower_components/
 .ruby-version
+public/assets/
 
