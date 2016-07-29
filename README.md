@@ -1,27 +1,39 @@
-1 - git clone https://github.com/ashutosh-singh-rawat/todo-mgmnt-system.git
+* SPECIFICATIONS
 
-2 - cd todo-mgmnt-system
+  Back-end    -   rails v 5.0.0
+                  ruby 2.3.1
+  DB          -   postgresql
+  Server      -   puma
 
-3 - RUN
-    
-    FOR DEVELOPMENT MODE 
-    ./development.sh
-
-    FOR PRODUCTION MODE
-    ./production.sh
+  Front-end   -   Angular 1.5
 
 
-See Live version here: 
-  https://todo-management-system.herokuapp.com
+* SETUP
 
-  Required Demo Credential are as follow:
+  1 - git clone https://github.com/ashutosh-singh-rawat/todo-mgmnt-system.git
 
-    Project Manager
-      1 - manager@gmail.com / manager
-      2 - manager1@gmail.com / manager1
-      3 - manager2@gmail.com / manager2 
+  2 - cd todo-mgmnt-system
 
-    Developers
-      1 - developer@gmail.com / developer
-      2 - developer1@gmail.com / developer1
-      3 - developer2@gmail.com / developer2
+  3 - RUN
+
+      FOR DEVELOPMENT MODE
+      ./development.sh
+
+      FOR PRODUCTION MODE
+      ./production.sh
+
+
+  See Live version here:
+    https://todo-management-system.herokuapp.com
+
+    Required Demo Credential are as follow:
+
+      Project Manager
+        1 - manager@gmail.com / manager
+        2 - manager1@gmail.com / manager1
+        3 - manager2@gmail.com / manager2
+
+      Developers
+        1 - developer@gmail.com / developer
+        2 - developer1@gmail.com / developer1
+        3 - developer2@gmail.com / developer2
